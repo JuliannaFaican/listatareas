@@ -3,5 +3,19 @@
 <ion-progress-bar></ion-progress-bar>
 <ion-item>
   <ion-input placeholder="Agregar tarea"[(NgModel)]="newTask"></ion-input>
+  <ion-button slot="end" (click)="addTask()" color="green">
+    Agregar
+  </ion-button>
 </ion-item>
+
+<ion-list>
+  <ion-item>
+    <ion-label *ngFor="Let task of tasks">
+      <ion-checkbox [(ngModel)]="task.completed"></ion-checkbox>
+      <ion-button color="danger" slot="end" (click)="deleteTask(task)" >
+        Eliminar
+      </ion-button>
+    </ion-label>
+  </ion-item>
+</ion-list>
 </ion-app>
